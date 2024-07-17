@@ -1,6 +1,7 @@
 package com.fsse2406.project.api;
 
 import com.fsse2406.project.data.product.Data.ProductResponseData;
+import com.fsse2406.project.data.product.Dto.GetAllProductResponseDto;
 import com.fsse2406.project.data.product.Dto.ProductResponseDto;
 import com.fsse2406.project.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,20 +25,20 @@ public class ProductApi {
     }
 
     @GetMapping("/getAllProduct")
-    public List<ProductResponseDto> getAllProduct(){
+    public List<GetAllProductResponseDto> getAllProduct(){
         List<ProductResponseData> productResponseDataList = projectService.getAllProduct();
-        List<ProductResponseDto> productResponseDtoList = new ArrayList<>();
+        List<GetAllProductResponseDto> getAllProductResponseDtoList = new ArrayList<>();
 
         for(ProductResponseData productResponseData : productResponseDataList){
-            productResponseDtoList.add(new ProductResponseDto(productResponseData));
+            getAllProductResponseDtoList.add(new GetAllProductResponseDto(productResponseData));
 
 
         }
-        return productResponseDtoList;
+        return getAllProductResponseDtoList;
 
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{pid}")
     public ProductResponseDto getProductEntityById(@PathVariable int pid){
         ProductResponseData data = new ProductResponseData(projectService.getProductEntityById(pid));
         ProductResponseDto productResponseDto = new ProductResponseDto(data);
