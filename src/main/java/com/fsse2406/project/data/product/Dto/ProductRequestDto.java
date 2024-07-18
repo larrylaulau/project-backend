@@ -6,7 +6,7 @@ public class ProductRequestDto {
 
     private int pid;
     private String Name;
-    private String image_url;
+    private String imageUrl;
     private BigDecimal Price;
     private int stock;
 
@@ -26,12 +26,12 @@ public class ProductRequestDto {
         Name = name;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public BigDecimal getPrice() {

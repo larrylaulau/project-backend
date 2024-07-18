@@ -18,7 +18,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+                .authorizeHttpRequests((authz) -> authz
+                        .requestMatchers("/product/getAllProduct/**").hasRole("getAllProduct")
+                        .requestMatchers("/product/{{pid}}/**").hasRole("getProductById")
+                        .anyRequest().authenticated()
+                )
                 .csrf(csrf -> csrf.disable());
         http
                 .oauth2ResourceServer(

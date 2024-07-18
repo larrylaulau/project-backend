@@ -1,9 +1,10 @@
 package com.fsse2406.project.api;
 
+import com.fsse2406.project.data.product.Data.GetAllProductResponseData;
 import com.fsse2406.project.data.product.Data.ProductResponseData;
 import com.fsse2406.project.data.product.Dto.GetAllProductResponseDto;
 import com.fsse2406.project.data.product.Dto.ProductResponseDto;
-import com.fsse2406.project.service.ProjectService;
+import com.fsse2406.project.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,20 +19,19 @@ import java.util.List;
 public class ProductApi {
 
 
-    private final ProjectService projectService;
+    private final ProductService productService;
     @Autowired
-    public ProductApi(ProjectService projectService) {
-        this.projectService = projectService;
+    public ProductApi(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping("/getAllProduct")
     public List<GetAllProductResponseDto> getAllProduct(){
-        List<ProductResponseData> productResponseDataList = projectService.getAllProduct();
+        List<GetAllProductResponseData> getAllproductResponseDataList = productService.getAllProduct();
         List<GetAllProductResponseDto> getAllProductResponseDtoList = new ArrayList<>();
 
-        for(ProductResponseData productResponseData : productResponseDataList){
-            getAllProductResponseDtoList.add(new GetAllProductResponseDto(productResponseData));
-
+        for(GetAllProductResponseData getAllProductResponseData : getAllproductResponseDataList){
+            getAllProductResponseDtoList.add(new GetAllProductResponseDto(getAllProductResponseData));
 
         }
         return getAllProductResponseDtoList;
@@ -39,10 +39,9 @@ public class ProductApi {
     }
 
     @GetMapping("/{pid}")
-    public ProductResponseDto getProductEntityById(@PathVariable int pid){
-        ProductResponseData data = new ProductResponseData(projectService.getProductEntityById(pid));
-        ProductResponseDto productResponseDto = new ProductResponseDto(data);
-        return productResponseDto;
+    public ProductResponseDto getProductById(@PathVariable int pid){
+        return new ProductResponseDto(productService.getProductById(pid));
+
     }
 
 

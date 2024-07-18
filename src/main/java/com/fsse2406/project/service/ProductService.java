@@ -1,13 +1,17 @@
 package com.fsse2406.project.service;
 
+import com.fsse2406.project.data.product.Data.GetAllProductResponseData;
 import com.fsse2406.project.data.product.Data.ProductResponseData;
 import com.fsse2406.project.data.product.Entity.ProductEntity;
 
 import java.util.List;
 
-public interface ProjectService {
+public interface ProductService {
 
-    List<ProductResponseData> getAllProduct();
+
+    List<GetAllProductResponseData> getAllProduct();
+
+    ProductResponseData getProductById(int id);
 
     ProductEntity getProductEntityById(int pid);
 }

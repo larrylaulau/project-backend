@@ -1,21 +1,20 @@
 package com.fsse2406.project.data.product.Dto;
 
 import com.fsse2406.project.data.product.Data.ProductResponseData;
-import com.fsse2406.project.data.product.Entity.ProductEntity;
 
 import java.math.BigDecimal;
 
 public class ProductResponseDto {
     private int pid;
     private String Name;
-    private String image_url;
+    private String imageUrl;
     private BigDecimal Price;
     private int stock;
 
     public ProductResponseDto(ProductResponseData data) {
         this.pid = data.getPid();
         this.Name = data.getName();
-        this.image_url = data.getImage_url();
+        this.imageUrl = data.getImageUrl();
         this.Price = data.getPrice();
         this.stock = data.getStock();
     }
@@ -36,12 +35,12 @@ public class ProductResponseDto {
         Name = name;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public BigDecimal getPrice() {

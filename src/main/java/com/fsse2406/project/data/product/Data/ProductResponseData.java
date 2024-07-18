@@ -8,14 +8,14 @@ public class ProductResponseData {
 
     private int pid;
     private String Name;
-    private String image_url;
+    private String imageUrl;
     private BigDecimal Price;
     private int stock;
 
     public ProductResponseData(ProductEntity entity) {
         this.pid = entity.getPid();
         this.Name = entity.getName();
-        this.image_url = entity.getImage_url();
+        this.imageUrl = entity.getImageUrl();
         this.Price = entity.getPrice();
         this.stock = entity.getStock();
     }
@@ -36,12 +36,12 @@ public class ProductResponseData {
         Name = name;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public BigDecimal getPrice() {

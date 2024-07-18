@@ -1,23 +1,23 @@
 package com.fsse2406.project.data.product.Data;
 
-import com.fsse2406.project.data.product.Dto.ProductRequestDto;
+import com.fsse2406.project.data.product.Entity.ProductEntity;
 
 import java.math.BigDecimal;
 
-public class ProductRequestData {
-
+public class GetAllProductResponseData {
     private int pid;
     private String Name;
     private String imageUrl;
     private BigDecimal Price;
     private int stock;
 
-    public ProductRequestData(ProductRequestDto dto){
-        this.pid=dto.getpId();
-        this.Name=dto.getName();
-        this.imageUrl =dto.getImageUrl();
-        this.Price=dto.getPrice();
-        this.stock=dto.getStock();
+    public GetAllProductResponseData(ProductEntity entity) {
+        this.pid = entity.getPid();
+        this.Name = entity.getName();
+        this.imageUrl = entity.getImageUrl();
+        this.Price = entity.getPrice();
+        this.stock = entity.getStock();
+
     }
 
     public int getPid() {
@@ -59,4 +59,5 @@ public class ProductRequestData {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
 }

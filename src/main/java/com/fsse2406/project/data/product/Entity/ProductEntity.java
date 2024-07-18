@@ -1,6 +1,5 @@
 package com.fsse2406.project.data.product.Entity;
 
-import com.fsse2406.project.data.product.Data.ProductRequestData;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -13,31 +12,26 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer pid;
 
-    @Column(name="name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name="image_url")
-    private String image_url;
-    @Column(name="price")
+
+    private String description;
+
+    private String imageUrl;
+
     private BigDecimal price;
-    @Column(name="stock", nullable = false)
+
     private int stock;
 
     public ProductEntity() {
     }
 
-    public ProductEntity(ProductRequestData data) {
-        this.pid = data.getPid();
-        this.name = data.getName();
-        this.image_url = data.getImage_url();
-        this.price = data.getPrice();
-        this.stock = data.getStock();
-    }
 
-    public int getPid() {
+    public Integer getPid() {
         return pid;
     }
 
-    public void setPid(int pid) {
+    public void setPid(Integer pid) {
         this.pid = pid;
     }
 
@@ -49,12 +43,20 @@ public class ProductEntity {
         this.name = name;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getDescription() {
+        return description;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String image_url) {
+        this.imageUrl = image_url;
     }
 
     public BigDecimal getPrice() {
