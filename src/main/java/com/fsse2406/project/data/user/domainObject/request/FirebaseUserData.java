@@ -1,4 +1,4 @@
-package com.fsse2406.project.data.user.domainObject;
+package com.fsse2406.project.data.user.domainObject.request;
 
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 

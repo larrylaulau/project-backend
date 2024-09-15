@@ -9,6 +9,7 @@ public class ProductRequestDto {
     private String imageUrl;
     private BigDecimal Price;
     private int stock;
+    private String description;
 
     public int getpId() {
         return pid;
@@ -48,5 +49,13 @@ public class ProductRequestDto {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

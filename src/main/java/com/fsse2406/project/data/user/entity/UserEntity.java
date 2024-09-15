@@ -1,6 +1,6 @@
 package com.fsse2406.project.data.user.entity;
 
-import com.fsse2406.project.data.user.domainObject.FirebaseUserData;
+import com.fsse2406.project.data.user.domainObject.request.FirebaseUserData;
 import jakarta.persistence.*;
 
 @Entity

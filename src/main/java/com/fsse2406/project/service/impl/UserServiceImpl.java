@@ -1,6 +1,6 @@
 package com.fsse2406.project.service.impl;
 
-import com.fsse2406.project.data.user.domainObject.FirebaseUserData;
+import com.fsse2406.project.data.user.domainObject.request.FirebaseUserData;
 import com.fsse2406.project.data.user.entity.UserEntity;
 import com.fsse2406.project.repository.UserRepository;
 import com.fsse2406.project.service.UserService;

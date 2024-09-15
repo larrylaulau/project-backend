@@ -5,7 +5,7 @@ import com.fsse2406.project.data.product.Data.GetAllProductResponseData;
 import com.fsse2406.project.data.product.Data.ProductResponseData;
 import com.fsse2406.project.data.product.Entity.ProductEntity;
 import com.fsse2406.project.repository.ProductRepository;
-import com.fsse2406.project.exception.ProductNotFoundException;
+import com.fsse2406.project.exception.product.ProductNotFoundException;
 import com.fsse2406.project.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,12 +47,29 @@ public ProductResponseData getProductById(int pid){
 @Override
 public ProductEntity getProductEntityById(int pid) {
 
-
        return productRepository.findById(pid).orElseThrow(
                () ->new ProductNotFoundException(pid)
        );
-
-
+    }
+@Override
+    public boolean isValidQuantity(Integer pid, Integer quantity){
+        ProductEntity productEntity = getProductEntityById(pid);
+        if(quantity < 1 ){
+            return false;
+        }else if(quantity > productEntity.getStock()){
+            return false;
+        }
+        return true;
+    }
+@Override
+    public boolean deduceStock(Integer pid, Integer quantity){
+        ProductEntity productEntity = getProductEntityById(pid);
+        if(!isValidQuantity(pid,quantity)){
+            return false;
+        }
+        productEntity.setStock(productEntity.getStock() - quantity);
+        productRepository.save(productEntity);
+        return true;
     }
 }
 

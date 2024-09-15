@@ -14,4 +14,8 @@ public interface ProductService {
     ProductResponseData getProductById(int id);
 
     ProductEntity getProductEntityById(int pid);
+
+    boolean isValidQuantity(Integer pid, Integer quantity);
+
+    boolean deduceStock(Integer pid, Integer quantity);
 }

@@ -11,6 +11,7 @@ public class ProductRequestData {
     private String imageUrl;
     private BigDecimal Price;
     private int stock;
+    private String description;
 
     public ProductRequestData(ProductRequestDto dto){
         this.pid=dto.getpId();
@@ -18,6 +19,7 @@ public class ProductRequestData {
         this.imageUrl =dto.getImageUrl();
         this.Price=dto.getPrice();
         this.stock=dto.getStock();
+        this.description=dto.getDescription();
     }
 
     public int getPid() {
@@ -58,5 +60,13 @@ public class ProductRequestData {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

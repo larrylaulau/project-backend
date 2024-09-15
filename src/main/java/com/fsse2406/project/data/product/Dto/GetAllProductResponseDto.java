@@ -11,12 +11,14 @@ public class GetAllProductResponseDto {
     private BigDecimal Price;
     private boolean hasStock;
 
+
     public GetAllProductResponseDto(GetAllProductResponseData getAllProductResponseData) {
         this.pid = getAllProductResponseData.getPid();
         this.Name = getAllProductResponseData.getName();
         this.imageUrl = getAllProductResponseData.getImageUrl();
         this.Price = getAllProductResponseData.getPrice();
         this.hasStock = getAllProductResponseData.getStock()>0;
+
     }
 
     public int getPid() {
@@ -58,4 +60,5 @@ public class GetAllProductResponseDto {
     public void setHasStock(boolean hasStock) {
         this.hasStock = hasStock;
     }
+
 }

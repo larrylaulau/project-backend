@@ -11,6 +11,7 @@ public class GetAllProductResponseData {
     private BigDecimal Price;
     private int stock;
 
+
     public GetAllProductResponseData(ProductEntity entity) {
         this.pid = entity.getPid();
         this.Name = entity.getName();

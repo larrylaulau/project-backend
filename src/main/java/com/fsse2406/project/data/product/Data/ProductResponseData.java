@@ -11,6 +11,7 @@ public class ProductResponseData {
     private String imageUrl;
     private BigDecimal Price;
     private int stock;
+    private String description;
 
     public ProductResponseData(ProductEntity entity) {
         this.pid = entity.getPid();
@@ -18,6 +19,7 @@ public class ProductResponseData {
         this.imageUrl = entity.getImageUrl();
         this.Price = entity.getPrice();
         this.stock = entity.getStock();
+        this.description = entity.getDescription();
     }
 
     public int getPid() {
@@ -58,6 +60,13 @@ public class ProductResponseData {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
 
